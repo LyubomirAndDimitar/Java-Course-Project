@@ -1,4 +1,3 @@
 # hello-world
 Kursov proekt
-Lyubomir And Dimitar TM
-second commit
+repository: new name: Java-Course-Project
