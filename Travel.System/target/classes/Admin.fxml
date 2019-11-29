@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="Java_Business_Logic.AdminController">
+	<children>
+      <Button fx:id="U_C_Query" layoutX="195.0" layoutY="200.0"
+	mnemonicParsing="false" onAction="#User_C_Query" prefHeight="31.0"
+	prefWidth="373.0" text="Users and Companies">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="27.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Position :" wrappingWidth="105.650390625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="67.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="11.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indication № :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="144.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="A_Name" layoutX="144.0" layoutY="62.0" prefHeight="27.0" prefWidth="162.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="A_ID" layoutX="144.0" layoutY="109.0" prefHeight="27.0" prefWidth="162.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="A_Support" layoutX="195.0" layoutY="278.0" prefHeight="25.0" prefWidth="373.0" promptText="Support ">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button fx:id="Support_ID" layoutX="277.0" layoutY="319.0" mnemonicParsing="false" onAction="#Support_A" prefHeight="25.0" prefWidth="209.0" text="Support">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
