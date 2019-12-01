@@ -1,10 +1,8 @@
 package Java_FX;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import Java_Business_Logic.JDBC_Dao;
+import JDBC.JDBC_Dao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +19,7 @@ import javafx.stage.Window;
 public class LoginController {
 
 	@FXML
-	private TextField emailIdField;
+	private TextField UserName;
 
 	@FXML
 	private PasswordField passwordField;
@@ -37,7 +35,7 @@ public class LoginController {
 		// System.out.println(emailIdField.getText());
 		// System.out.println(passwordField.getText());
 
-		if (emailIdField.getText().isEmpty()) {
+		if (UserName.getText().isEmpty()) {
 			showAlert(Alert.AlertType.ERROR, owner, "Form Error!", "Please enter your email id");
 			return;
 		}
@@ -46,30 +44,29 @@ public class LoginController {
 			return;
 		}
 
-		String emailId = emailIdField.getText();
+		String emailId = UserName.getText();
 		String password = passwordField.getText();
 
 		JDBC_Dao jdbcDao = new JDBC_Dao();
 		boolean flag = jdbcDao.validate(emailId, password);
-		
+
 		if (!flag) {
 			infoBox("Please enter correct Email and Password", null, "Failed");
 		} else {
-			//infoBox("Login Successful!", null, "Failed");// 
-			
+			// infoBox("Login Successful!", null, "Failed");//
+
 			try {
-			
+
 				Stage stage = new Stage();
 				Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
 				stage.setScene(new Scene(root));
 				stage.show();
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			//stage.setTitle("Registration Form FXML Application");
-			//stage.setScene(new Scene(root, 500, 650));
-	
+			// stage.setTitle("Registration Form FXML Application");
+			// stage.setScene(new Scene(root, 500, 650));
 
 		}
 	}

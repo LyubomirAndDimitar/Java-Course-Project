@@ -1,105 +1,116 @@
 package Java_Business_Logic;
 
+import javafx.beans.property.SimpleStringProperty;
+
+
 public class Users {
-	int uclid, U_Cl_Role, U_Cl_City, U_Cl_ManagerID;
-	String U_Cl_Email, U_Cl_Name, U_Cl_Phone, U_Cl_UserName, U_Cl_Password, U_Cl_Addres;
+	private SimpleStringProperty user_ID;
+	private SimpleStringProperty user_Name;
+	private SimpleStringProperty user_UserName;
+	private SimpleStringProperty user_Password;
+	private SimpleStringProperty user_Addres;
+	private SimpleStringProperty user_Email;
+	private SimpleStringProperty user_Phone;
+	private SimpleStringProperty  user_Role;
+	private SimpleStringProperty  user_City;
+	private SimpleStringProperty  user_ManagerID;
 
 	public Users() {
 	}
 
-	public Users(int uclid, String u_Cl_Name, String u_Cl_UserName, String u_Cl_Password, String u_Cl_Email,
-			String u_Cl_Addres, String u_Cl_Phone, int u_Cl_Role, int u_Cl_City, int u_Cl_ManagerID) {
-
-		this.uclid = uclid;
-		U_Cl_Role = u_Cl_Role;
-		U_Cl_City = u_Cl_City;
-		U_Cl_ManagerID = u_Cl_ManagerID;
-		U_Cl_Email = u_Cl_Email;
-		U_Cl_Name = u_Cl_Name;
-		U_Cl_Phone = u_Cl_Phone;
-		U_Cl_UserName = u_Cl_UserName;
-		U_Cl_Password = u_Cl_Password;
-		U_Cl_Addres = u_Cl_Addres;
+	public Users(String ID, String Name, String UserName, String Password, String Addres, String Email, String Phone,
+			String Role, String City, String ManagerID) {
+		super();
+		this.user_ID = new SimpleStringProperty(ID);
+		this.user_Name = new SimpleStringProperty(Name);
+		this.user_UserName = new SimpleStringProperty(UserName);
+		this.user_Password = new SimpleStringProperty(Password);
+		this.user_Addres = new SimpleStringProperty(Addres);
+		this.user_Email = new SimpleStringProperty(Email);
+		this.user_Phone = new SimpleStringProperty(Phone);
+		this.user_Role = new SimpleStringProperty(Role);
+		this.user_City = new SimpleStringProperty(City);
+		this.user_ManagerID = new SimpleStringProperty(ManagerID);
 	}
 
-	public int getU_Cl_ID() {
-		return uclid;
+	public String getUser_ID() {
+		return user_ID.get();
 	}
 
-	public void setU_Cl_ID(int u_Cl_ID) {
-		uclid = u_Cl_ID;
+	public void setUser_ID(String ID) {
+		this.user_ID.set(ID);
 	}
 
-	public String getU_Cl_Name() {
-		return U_Cl_Name;
+	public String getUser_Name() {
+		return user_Name.get();
 	}
 
-	public void setU_Cl_Name(String u_Cl_Name) {
-		U_Cl_Name = u_Cl_Name;
+	public void setUser_Name(String Name) {
+		this.user_Name.set(Name);
 	}
 
-	public String getU_Cl_UserName() {
-		return U_Cl_UserName;
+	public String getUser_UserName() {
+		return user_UserName.get();
 	}
 
-	public void setU_Cl_UserName(String u_Cl_UserName) {
-		U_Cl_UserName = u_Cl_UserName;
+	public void setUser_UserName(String UserName) {
+		this.user_UserName.set(UserName);
 	}
 
-	public String getU_Cl_Password() {
-		return U_Cl_Password;
+	public String getUser_Password() {
+		return user_Password.get();
 	}
 
-	public void setU_Cl_Password(String u_Cl_Password) {
-		U_Cl_Password = u_Cl_Password;
+	public void setUser_Password(String Password) {
+		this.user_Password.set(Password);
 	}
 
-	public String getU_Cl_Email() {
-		return U_Cl_Email;
+	public String getUser_Addres() {
+		return user_Addres.get();
 	}
 
-	public void setU_Cl_Email(String u_Cl_Email) {
-		U_Cl_Email = u_Cl_Email;
+	public void setUser_Addres(String Addres) {
+		this.user_Addres.set(Addres);
 	}
 
-	public String getU_Cl_Addres() {
-		return U_Cl_Addres;
+	public String getUser_Email() {
+		return user_Email.get();
 	}
 
-	public void setU_Cl_Addres(String u_Cl_Addres) {
-		U_Cl_Addres = u_Cl_Addres;
+	public void setUser_Email(String Email) {
+		this.user_Email.set(Email);
 	}
 
-	public String getU_Cl_Phone() {
-		return U_Cl_Phone;
+	public String getUser_Phone() {
+		return user_Phone.get();
 	}
 
-	public void setU_Cl_Phone(String u_Cl_Phone) {
-		U_Cl_Phone = u_Cl_Phone;
+	public void setUser_Phone(String Phone) {
+		this.user_Phone.set(Phone);
 	}
 
-	public int getU_Cl_Role() {
-		return U_Cl_Role;
+	public String getUser_Role() {
+		return user_Role.get();
 	}
 
-	public void setU_Cl_Role(int u_Cl_Role) {
-		U_Cl_Role = u_Cl_Role;
+	public void setUser_Role(String Role) {
+		this.user_Role.set(Role);;
 	}
 
-	public int getU_Cl_City() {
-		return U_Cl_City;
+	public String getUser_City() {
+		return user_City.get();
 	}
 
-	public void setU_Cl_City(int u_Cl_City) {
-		U_Cl_City = u_Cl_City;
+	public void setUser_City(String City) {
+		this.user_City.set(City);
 	}
 
-	public int getU_Cl_ManagerID() {
-		return U_Cl_ManagerID;
+	public String getUser_ManagerID() {
+		return user_ManagerID.get();
 	}
 
-	public void setU_Cl_ManagerID(int u_Cl_ManagerID) {
-		U_Cl_ManagerID = u_Cl_ManagerID;
+	public void setUser_ManagerID(String ManagerID) {
+		this.user_ManagerID.set(ManagerID);
 	}
 
 }

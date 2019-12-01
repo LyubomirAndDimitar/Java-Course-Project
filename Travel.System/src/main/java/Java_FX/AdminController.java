@@ -1,4 +1,4 @@
-package Java_Business_Logic;
+package Java_FX;
 
 import java.io.IOException;
 
@@ -37,7 +37,7 @@ public class AdminController {
 	void User_C_Query(ActionEvent event) {
 		try {
 			Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/CreareUser.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/CreateUser.fxml"));
 			stage.setScene(new Scene(root));
 			stage.show();
 			

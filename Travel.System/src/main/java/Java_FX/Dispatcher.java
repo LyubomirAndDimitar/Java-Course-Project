@@ -1,4 +1,4 @@
-package Java_Business_Logic;
+package Java_FX;
 
 public class Dispatcher {
 	private String Name;
@@ -6,13 +6,15 @@ public class Dispatcher {
 	private String Password;
 	private String Address;
 	private String Phone_number;
-	private String Role;
-	private String City;
+	private int Role;
+	private int City;
+	private int Managare;
 
-	public Dispatcher() {}
-	
-	public Dispatcher(String name, String user_Name, String password, String address, String phone_number, String role,
-			String city) {
+	public Dispatcher() {
+	}
+
+	public Dispatcher(String name, String user_Name, String password, String address, String phone_number, int role,
+			int city, int managare) {
 		Name = name;
 		User_Name = user_Name;
 		Password = password;
@@ -20,6 +22,7 @@ public class Dispatcher {
 		Phone_number = phone_number;
 		Role = role;
 		City = city;
+		Managare = managare;
 	}
 
 	public String getName() {
@@ -62,20 +65,28 @@ public class Dispatcher {
 		Phone_number = phone_number;
 	}
 
-	public String getRole() {
+	public int getRole() {
 		return Role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(int role) {
 		Role = role;
 	}
 
-	public String getCity() {
+	public int getCity() {
 		return City;
 	}
 
-	public void setCity(String city) {
+	public void setCity(int city) {
 		City = city;
+	}
+
+	public int getManagare() {
+		return Managare;
+	}
+
+	public void setManagare(int managare) {
+		Managare = managare;
 	}
 
 	
