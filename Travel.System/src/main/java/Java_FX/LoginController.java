@@ -1,11 +1,16 @@
 package Java_FX;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
+
 import JDBC.JDBC_Dao;
+import Java_Business_Logic.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,7 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
 	@FXML
 	private TextField UserName;
@@ -26,6 +31,7 @@ public class LoginController {
 
 	@FXML
 	private Button submitButton;
+	
 
 	@FXML
 	public void login(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -58,8 +64,25 @@ public class LoginController {
 			try {
 
 				Stage stage = new Stage();
-				Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
-				stage.setScene(new Scene(root));
+				if (JDBC_Dao.ROLE == 1) {
+					
+					Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
+					stage.setScene(new Scene(root));
+					//JDBC_Dao.getConnction();
+					//dminController.A_Name.setText(JDBC_Dao.NAME_USER);
+				}
+					
+				if (JDBC_Dao.ROLE == 3) {
+					
+					AdminController ac = new AdminController();
+					 ac.A_Name.setText(JDBC_Dao.NAME_USER);
+					Parent root = FXMLLoader.load(getClass().getResource("/DispatcherFXML.fxml"));
+					stage.setScene(new Scene(root));
+				}
+				if (JDBC_Dao.ROLE == 4) {
+					Parent root = FXMLLoader.load(getClass().getResource("/CashierFXML.fxml"));
+					stage.setScene(new Scene(root));
+				}
 				stage.show();
 
 			} catch (IOException e) {
@@ -86,5 +109,11 @@ public class LoginController {
 		alert.setContentText(message);
 		alert.initOwner(owner);
 		alert.show();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 }

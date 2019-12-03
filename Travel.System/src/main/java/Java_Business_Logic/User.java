@@ -3,7 +3,7 @@ package Java_Business_Logic;
 import javafx.beans.property.SimpleStringProperty;
 
 
-public class Users {
+public class User {
 	private SimpleStringProperty user_ID;
 	private SimpleStringProperty user_Name;
 	private SimpleStringProperty user_UserName;
@@ -15,10 +15,16 @@ public class Users {
 	private SimpleStringProperty  user_City;
 	private SimpleStringProperty  user_ManagerID;
 
-	public Users() {
+	public User() {
 	}
 
-	public Users(String ID, String Name, String UserName, String Password, String Addres, String Email, String Phone,
+	public User(String username, String password) {
+		user_UserName.setValue(username);
+		user_Password.setValue(password);
+		
+		
+	}
+	public User(String ID, String Name, String UserName, String Password, String Addres, String Email, String Phone,
 			String Role, String City, String ManagerID) {
 		super();
 		this.user_ID = new SimpleStringProperty(ID);

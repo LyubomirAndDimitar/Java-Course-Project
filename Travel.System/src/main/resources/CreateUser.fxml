@@ -3,10 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1439.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Table_User">
 	<children>
@@ -24,56 +21,8 @@
 				<TableColumn fx:id="U_C_ManagerID" prefWidth="184.0" text="Manager_ID" />
 			</columns>
 		</TableView>
-		<TextField fx:id="U_FullName" layoutX="93.0" layoutY="513.0" prefHeight="25.0" prefWidth="237.0" promptText="FullName" />
-		<TextField fx:id="U_UserName" layoutX="456.0" layoutY="513.0" prefHeight="25.0" prefWidth="183.0" promptText="UserName" />
-		<TextField fx:id="U_Password" layoutX="741.0" layoutY="514.0" prefHeight="25.0" prefWidth="198.0" promptText="Password" />
-		<TextField fx:id="U_Email" layoutX="1020.0" layoutY="513.0" prefHeight="25.0" prefWidth="207.0" promptText="Email" />
-		<TextField fx:id="U_Address" layoutX="93.0" layoutY="576.0" prefHeight="25.0" prefWidth="237.0" promptText="Address" />
-		<TextField fx:id="U_Phone" layoutX="454.0" layoutY="574.0" prefHeight="25.0" prefWidth="183.0" promptText="PhoneNumber" />
-		<TextField fx:id="U_Role" layoutX="702.0" layoutY="578.0" promptText="Role" />
-		<TextField fx:id="U_City" layoutX="946.0" layoutY="576.0" promptText="City" />
-		<Text layoutX="17.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full_Name :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="363.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_Namext :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="669.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="970.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="29.0" layoutY="593.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="353.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone_Number :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="660.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="908.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City :">
-			<font>
-				<Font name="Yu Gothic Regular" size="13.0" />
-			</font>
-		</Text>
-		<Text layoutX="1161.0" layoutY="602.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager_ID :" />
-		<TextField fx:id="U_Manager" layoutX="1256.0" layoutY="576.0" prefHeight="25.0" prefWidth="88.0" promptText="Manager ID" />
-		<Button layoutX="1279.0" layoutY="517.0" mnemonicParsing="false" text="Add" />
+      <Button mnemonicParsing="false" text="Button" />
+      <Button fx:id="addUserButton" layoutX="595.0" layoutY="540.0" mnemonicParsing="false" onAction="#addUser" text="Add User" />
+		<!-- <Button fx:id="b_add" layoutX="1279.0" layoutY="517.0" mnemonicParsing="false" onAction="#add" text="Add" AnchorPane.bottomAnchor="96.0" />-->
 	</children>
 </AnchorPane>

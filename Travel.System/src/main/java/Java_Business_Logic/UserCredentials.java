@@ -1,9 +1,9 @@
 package Java_Business_Logic;
 
 public class UserCredentials {
-	private String UserName;
-	private String Password;
-
+	public static String UserName;
+	public static String Password;
+	public static String Name;
 	public UserCredentials() {
 	}
 
@@ -28,4 +28,5 @@ public class UserCredentials {
 		Password = password;
 	}
 
+	//public User buildUser();
 }

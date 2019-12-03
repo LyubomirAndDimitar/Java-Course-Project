@@ -14,6 +14,9 @@ public class JDBC_Dao {
 	private static final String DATABASE_USERNAME = "root";
 	private static final String DATABASE_PASSWORD = "@Lyubomir_Nakov";
 	private static final String SELECT_QUERY = "SELECT * FROM users WHERE User_name = ? and U_Password = ?";
+	public static int ROLE;
+	public static int ID_USER;
+	public static String NAME_USER;
 
 	public static Connection getConnction() throws SQLException {
 		Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
@@ -34,6 +37,11 @@ public class JDBC_Dao {
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
+				ID_USER=resultSet.getInt("User_ID");
+				
+				NAME_USER=resultSet.getString("Full_Name");
+				ROLE=resultSet.getInt("Role_ID");
+				System.out.println(ID_USER +" "+NAME_USER+" "+ROLE);
 				return true;
 			}
 
