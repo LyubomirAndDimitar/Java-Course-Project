@@ -31,15 +31,12 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private Button submitButton;
-	
 
 	@FXML
 	public void login(ActionEvent event) throws SQLException, ClassNotFoundException {
 
 		Window owner = submitButton.getScene().getWindow();
 
-		// System.out.println(emailIdField.getText());
-		// System.out.println(passwordField.getText());
 
 		if (UserName.getText().isEmpty()) {
 			showAlert(Alert.AlertType.ERROR, owner, "Form Error!", "Please enter your email id");
@@ -65,17 +62,14 @@ public class LoginController implements Initializable {
 
 				Stage stage = new Stage();
 				if (JDBC_Dao.ROLE == 1) {
-					
 					Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
 					stage.setScene(new Scene(root));
-					//JDBC_Dao.getConnction();
-					//dminController.A_Name.setText(JDBC_Dao.NAME_USER);
+					// JDBC_Dao.getConnction();
+					// dminController.A_Name.setText(JDBC_Dao.NAME_USER);
 				}
-					
+
 				if (JDBC_Dao.ROLE == 3) {
-					
-					AdminController ac = new AdminController();
-					 ac.A_Name.setText(JDBC_Dao.NAME_USER);
+
 					Parent root = FXMLLoader.load(getClass().getResource("/DispatcherFXML.fxml"));
 					stage.setScene(new Scene(root));
 				}
@@ -114,6 +108,6 @@ public class LoginController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -11,4 +11,5 @@ public class Cashier_Controler {
 
 	    @FXML
 	    private Label C_ID;
+	    
 }

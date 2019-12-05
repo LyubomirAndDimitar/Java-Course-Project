@@ -18,6 +18,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Registration Form FXML Application");
 		primaryStage.setScene(new Scene(root, 700, 650));
 		primaryStage.show();
+		
 
 	}
 

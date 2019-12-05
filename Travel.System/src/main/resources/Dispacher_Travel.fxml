@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="1334.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Dispatcher_Travel_Controler">
+   <children>
+      <TableView fx:id="Table_UTravel" layoutX="46.0" layoutY="61.0" prefHeight="417.0" prefWidth="1314.0" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+        <columns>
+          <TableColumn fx:id="T_ID" prefWidth="139.0" text="Travel ID" />
+          <TableColumn fx:id="T_Date" prefWidth="146.0" text="Date" />
+            <TableColumn fx:id="T_Destination" prefWidth="138.0" text="Travel_Destination" />
+            <TableColumn fx:id="T_Price" prefWidth="110.0" text="Price" />
+            <TableColumn fx:id="T_Pos" prefWidth="165.0" text="Departion_Pos" />
+            <TableColumn fx:id="T_Type" prefWidth="138.0" text="Travel_Type" />
+            <TableColumn fx:id="T_Casher" prefWidth="140.0" text="Cashier_ID" />
+            <TableColumn fx:id="T_Tickes_F" prefWidth="182.0" text="Number_tickets_sold" />
+            <TableColumn fx:id="T_Tickes_L" prefWidth="155.0" text="Number_tickets_left" />
+        </columns>
+      </TableView>
+      <Text layoutX="10.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of travel :" AnchorPane.bottomAnchor="84.0" />
+      <Text layoutX="45.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="371.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination :" AnchorPane.bottomAnchor="84.0" />
+      <Text layoutX="377.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="684.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" AnchorPane.bottomAnchor="84.0" />
+      <Text layoutX="669.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number tickets :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="915.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departion pos :" AnchorPane.bottomAnchor="84.0" />
+      <TextField fx:id="Distination" layoutX="468.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
+      <TextField fx:id="Price" layoutX="747.0" layoutY="495.0" prefHeight="31.0" prefWidth="83.0" AnchorPane.bottomAnchor="79.0" />
+      <DatePicker fx:id="Date" layoutX="116.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
+      <TextField fx:id="Pos" layoutX="1042.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
+      <TextField fx:id="Type" layoutX="107.0" layoutY="551.0" AnchorPane.bottomAnchor="23.0" />
+      <TextField fx:id="Cashier" layoutX="447.0" layoutY="540.0" AnchorPane.bottomAnchor="23.0" />
+      <TextField fx:id="Number_Tickets" layoutX="789.0" layoutY="540.0" AnchorPane.bottomAnchor="23.0" />
+      <Button fx:id="E_ADD" layoutX="1046.0" layoutY="551.0" mnemonicParsing="false" onAction="#ADD" prefHeight="31.0" prefWidth="270.0" text="Add New Travel" AnchorPane.bottomAnchor="23.0" />
+   </children>
+</AnchorPane>

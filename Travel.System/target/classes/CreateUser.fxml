@@ -3,11 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1439.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Table_User">
 	<children>
-		<TableView fx:id="U_Table" layoutX="17.0" layoutY="47.0" prefHeight="444.0" prefWidth="1395.0" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+		<TableView fx:id="U_Table" layoutX="17.0" layoutY="19.0" prefHeight="483.0" prefWidth="1429.0" AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="21.0">
 			<columns>
 				<TableColumn fx:id="U_C_ID" prefWidth="75.0" text="ID" />
 				<TableColumn fx:id="U_C_Name" prefWidth="75.0" text="Name" />
@@ -21,8 +23,25 @@
 				<TableColumn fx:id="U_C_ManagerID" prefWidth="184.0" text="Manager_ID" />
 			</columns>
 		</TableView>
-      <Button mnemonicParsing="false" text="Button" />
-      <Button fx:id="addUserButton" layoutX="595.0" layoutY="540.0" mnemonicParsing="false" onAction="#addUser" text="Add User" />
+      <Button fx:id="addUserButton" layoutX="1274.0" layoutY="526.0" mnemonicParsing="false" onAction="#add" prefHeight="31.0" prefWidth="151.0" text="Add " AnchorPane.bottomAnchor="87.0" />
+      <TextField fx:id="U_FullName" layoutX="102.0" layoutY="515.0" prefHeight="31.0" prefWidth="266.0" promptText="Full name/Name company" AnchorPane.bottomAnchor="87.0" />
+      <TextField fx:id="U_UserName" layoutX="465.0" layoutY="526.0" promptText="User Name" AnchorPane.bottomAnchor="87.0" />
+      <TextField fx:id="U_Password" layoutX="761.0" layoutY="526.0" promptText="Password" AnchorPane.bottomAnchor="87.0" />
+      <TextField fx:id="U_Email" layoutX="1052.0" layoutY="526.0" promptText="Email Address" AnchorPane.bottomAnchor="87.0" />
+      <TextField fx:id="U_Address" layoutX="102.0" layoutY="576.0" promptText="Address" AnchorPane.bottomAnchor="37.0" />
+      <TextField fx:id="U_Phone" layoutX="371.0" layoutY="577.0" promptText="Phone numbebr" AnchorPane.bottomAnchor="37.0" />
+      <Text layoutX="23.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :" AnchorPane.bottomAnchor="92.0" />
+      <Text layoutX="677.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwoed :" AnchorPane.bottomAnchor="92.0" />
+      <Text layoutX="311.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
+      <Text layoutX="987.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" AnchorPane.bottomAnchor="92.0" />
+      <Text layoutX="385.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name :" AnchorPane.bottomAnchor="92.0" />
+      <Text layoutX="38.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :" AnchorPane.bottomAnchor="42.0" />
+      <Text layoutX="593.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role :" />
+      <TextField fx:id="U_Role" layoutX="638.0" layoutY="577.0" promptText="Role ID" AnchorPane.bottomAnchor="37.0" />
+      <Text layoutX="841.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City :" />
+      <Text layoutX="1087.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager :" />
+      <TextField fx:id="U_City" layoutX="884.0" layoutY="577.0" promptText="City ID" AnchorPane.bottomAnchor="37.0" />
+      <TextField fx:id="U_Manager" layoutX="1162.0" layoutY="576.0" prefHeight="31.0" prefWidth="127.0" promptText="Managerr ID" AnchorPane.bottomAnchor="37.0" />
 		<!-- <Button fx:id="b_add" layoutX="1279.0" layoutY="517.0" mnemonicParsing="false" onAction="#add" text="Add" AnchorPane.bottomAnchor="96.0" />-->
 	</children>
 </AnchorPane>

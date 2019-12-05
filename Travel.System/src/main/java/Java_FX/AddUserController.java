@@ -74,7 +74,7 @@ public class AddUserController {
 			AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", "Please enter a password");
 			return;
 		}
-		//try {
+		try {
 			String SQL = "INSERT INTO user (Full_Name,User_Name,U_Password,Email,Address,Phone_Number,Role_ID,City_ID,Manager_ID) VALUES(?,?,?,?,?,?,?,?,?)";
 			Connection conn = JDBC_Dao.getConnction();
 			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
@@ -88,11 +88,11 @@ public class AddUserController {
 			prstmt.setInt(8, city);
 			prstmt.setInt(9, manager_id);
 			prstmt.executeUpdate();
-			//JOptionPane.showMessageDialog(null, "Insert suse");
-		//} catch (SQLException | HeadlessException ex) {
-			//JOptionPane.showMessageDialog(null, "Insert notsuse");
-		//} 
-			// conn.createStatement().executeQuery(Sql);
+			// JOptionPane.showMessageDialog(null, "Insert suse");
+		} catch (SQLException | HeadlessException ex) {
+			JOptionPane.showMessageDialog(null, "Insert notsuse");
+		}
+		// conn.createStatement().executeQuery(Sql);
 
 		// Users user = new Users(rs.getString(1), rs.getString(2), rs.getString(3),
 		// rs.getString(4), rs.getString(5),
