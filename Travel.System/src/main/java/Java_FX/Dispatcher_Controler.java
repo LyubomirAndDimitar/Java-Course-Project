@@ -21,36 +21,38 @@ public class Dispatcher_Controler implements Initializable {
 
 	@FXML
 	private Label ID_D;
-public void initialize(URL location, ResourceBundle resources) {
+
+	public void initialize(URL location, ResourceBundle resources) {
 		Name_D.setText(JDBC_Dao.NAME_USER);
 		ID_D.setText(JDBC_Dao.ID_USER);
 
 	}
-@FXML
-public void Travel_Button(ActionEvent event) {
-	try {
-		Stage stage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("/Dispacher_Travel.fxml"));
-		stage.setScene(new Scene(root));
-		stage.show();
 
-	} catch (IOException e) {
-		e.printStackTrace();
+	@FXML
+	public void Travel_Button(ActionEvent event) {
+		try {
+			Stage stage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("/Dispacher_Travel.fxml"));
+			stage.setScene(new Scene(root));
+			stage.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
-}
-@FXML
-void Queryr_Cashier(ActionEvent event)  {
-	try {
-		Stage stage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("/Query_My_Cashier.fxml"));
-		stage.setScene(new Scene(root));
-		stage.show();
+	@FXML
+	void Queryr_Cashier(ActionEvent event) {
+		try {
+			Stage stage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("/Query_My_Cashier.fxml"));
+			stage.setScene(new Scene(root));
+			stage.show();
 
-	} catch (IOException e) {
-		e.printStackTrace();
-		System.out.println("ERROR FACK");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-}
 
 }

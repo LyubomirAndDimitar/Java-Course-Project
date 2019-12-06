@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Query_Sale_Controler">
+   <children>
+      <TableView fx:id="Table_Travel" layoutX="22.0" layoutY="94.0" prefHeight="459.0" prefWidth="1098.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
+        <columns>
+          <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="Date" prefWidth="262.0" text="Date" />
+            <TableColumn fx:id="DEstination" prefWidth="130.0" text="Destination" />
+            <TableColumn fx:id="Price" prefWidth="95.0" text="Price" />
+            <TableColumn fx:id="Pos" prefWidth="119.0" text="Departion_Pos" />
+            <TableColumn fx:id="Type" prefWidth="141.0" text="Travel_Type" />
+            <TableColumn fx:id="N_T_F" prefWidth="146.0" text="Number_tickets_sold" />
+            <TableColumn fx:id="N_T_L" prefWidth="129.0" text="Number_tickets_left" />
+        </columns>
+      </TableView>
+      <Button layoutX="587.0" layoutY="501.0" mnemonicParsing="false" onAction="#Sale" prefHeight="25.0" prefWidth="110.0" text="SaLe" AnchorPane.bottomAnchor="75.0" />
+      <Text layoutX="60.0" layoutY="504.63671875" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel ID :" AnchorPane.bottomAnchor="79.3515625" />
+      <Button layoutX="955.0" layoutY="501.0" mnemonicParsing="false" onAction="#New_Custemer" prefHeight="25.0" prefWidth="110.0" text="New Custemer" AnchorPane.bottomAnchor="75.0" />
+      <TextField fx:id="Travel_ID" layoutX="124.0" layoutY="484.0" AnchorPane.bottomAnchor="75.0" />
+      <TextField fx:id="Custemer_ID" layoutX="369.0" layoutY="487.0" />
+      <Text layoutX="309.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custemer:" />
+   </children>
+</AnchorPane>

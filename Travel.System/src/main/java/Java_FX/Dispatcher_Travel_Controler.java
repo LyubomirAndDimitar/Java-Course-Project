@@ -25,6 +25,7 @@ import com.mysql.jdbc.PreparedStatement;
 import JDBC.JDBC_Dao;
 import Java_Business_Logic.Travel;
 import Java_Business_Logic.User;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -79,8 +80,13 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 	@FXML
 	private DatePicker Date;
+
 	@FXML
-	private TextField Time;
+	private ComboBox<String> hour;
+
+	@FXML
+	private ComboBox<String> mins;
+
 	@FXML
 	private TextField Pos;
 
@@ -95,12 +101,6 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 	@FXML
 	private Button E_ADD;
-
-	@FXML
-	private ComboBox<String> hour;
-
-	@FXML
-	private ComboBox<String> mins;
 
 	ObservableList<Travel> Oblist = FXCollections.observableArrayList();
 
@@ -117,20 +117,30 @@ public class Dispatcher_Travel_Controler implements Initializable {
 			while (rs.next()) {
 				Oblist.add(
 						new Travel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-								rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10)));
+								rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
 
 			}
 
-			T_ID.setCellValueFactory(new PropertyValueFactory<Travel, String>("Travel_ID"));
-			T_Date.setCellValueFactory(new PropertyValueFactory<Travel, String>("T_Date"));
-			T_Destination.setCellValueFactory(new PropertyValueFactory<Travel, String>("Travel_Destination"));
-			T_Price.setCellValueFactory(new PropertyValueFactory<Travel, String>("Price"));
-			T_Pos.setCellValueFactory(new PropertyValueFactory<Travel, String>("Departion_Pos"));
-			T_Type.setCellValueFactory(new PropertyValueFactory<Travel, String>("Travel_Type"));
-			T_Casher.setCellValueFactory(new PropertyValueFactory<Travel, String>("Cashier_ID"));
-			T_Tickes_F.setCellValueFactory(new PropertyValueFactory<Travel, String>("Number_tickets_sold"));
-			T_Tickes_L.setCellValueFactory(new PropertyValueFactory<Travel, String>("Number_tickets_left"));
-
+			T_ID.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_ID"));
+			T_Date.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Date"));
+			T_Destination.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Destination"));
+			T_Price.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Price"));
+			T_Pos.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Pos"));
+			T_Type.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Type"));
+			T_Casher.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Cashier_ID"));
+			T_Tickes_F.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_first"));
+			T_Tickes_L.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_last"));
+/*travel_ID;
+	private SimpleStringProperty travel_Date;
+	private SimpleStringProperty travel_Destination;
+	private SimpleStringProperty travel_Price;
+	private SimpleStringProperty travel_Pos;
+	private SimpleStringProperty travel_Type;
+	private SimpleStringProperty travel_Cashier_ID;
+	private SimpleStringProperty travel_tickets_first;
+	private SimpleStringProperty travel_tickets_last;
+*/
+			
 			Table_UTravel.setItems(Oblist);
 
 		} catch (SQLException e) {
@@ -143,46 +153,38 @@ public class Dispatcher_Travel_Controler implements Initializable {
 	@FXML
 
 	void ADD(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
-		String DATE = Date.getPromptText();
-		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
+		String DATE = Date.getPromptText();System.out.println(DATE);
 		String hours=hour.getValue();
 		String min=mins.getValue();
-		System.out.println(hours+":"+min);
+		String TIME =hours+":"+min;System.out.println(TIME);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		//Timestamp()
+		System.out.println();
 		
-		Date dates = simpleDateFormat.parse(DATE);
+		//Date dates = simpleDateFormat.parse(DATE);
 		String Travel_Destination = this.Distination.getText();
 		double price = Double.parseDouble(Price.getText());
 		int pos = Integer.parseInt(this.Pos.getText());
 		String travel_type = this.Type.getText();
 
 		int cashier = Integer.parseInt(this.Cashier.getText());
-		int Number_tickets_f = Integer.parseInt(this.Number_Tickets.getText());
 		int Number_tickets_l = 0;
+		int Number_tickets_f = Integer.parseInt(this.Number_Tickets.getText());;
 
-		// String Sql = "INSERT INTO users VALUES()";
-		/*
-		 * Window owner = E_ADD.getScene().getWindow(); if
-		 * (this.Date.getPromptText().isEmpty()) {
-		 * AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-		 * "Please enter your name"); return; } if
-		 * (this.Distination.getText().isEmpty()) {
-		 * AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-		 * "Please enter your email id"); return; } if (this.Price.getText().isEmpty())
-		 * { AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-		 * "Please enter a password"); return; }
-		 */
 		try {
-			String SQL = "INSERT INTO travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) VALUES(?,?,?,?,?,?,0,?)";
+			String SQL ="insert into travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) "
+					+ "values(NULL,?,?,?,?,?,?,?);";
+					
 			Connection conn = JDBC_Dao.getConnction();
 			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
-			prstmt.setDate(1, (java.sql.Date) dates);
+			//prstmt.setDate(1, );
 			prstmt.setString(2, Travel_Destination);
 			prstmt.setDouble(3, price);
 			prstmt.setInt(4, pos);
 			prstmt.setString(5, travel_type);
 			prstmt.setInt(6, cashier);
-			prstmt.setInt(8, Number_tickets_l);
+			prstmt.setInt(7, Number_tickets_l);
+			prstmt.setInt(8, Number_tickets_f);
 			prstmt.executeUpdate();
 			// JOptionPane.showMessageDialog(null, "Insert suse");
 		} catch (SQLException | HeadlessException ex) {

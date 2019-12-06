@@ -27,7 +27,7 @@ public class Travel {
 	}
 
 	public Travel(String ID, String Date, String Destination, String Price, String Pos, String Type, String Cashier_ID,
-			String tickets_first, String tickets_last, String ManagerID) {
+			String tickets_first, String tickets_last) {
 
 		this.travel_ID = new SimpleStringProperty(ID);
 		this.travel_Date = new SimpleStringProperty(Date);
