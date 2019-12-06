@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -24,19 +26,23 @@
         </columns>
       </TableView>
       <Text layoutX="10.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of travel :" AnchorPane.bottomAnchor="84.0" />
-      <Text layoutX="45.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :" AnchorPane.bottomAnchor="28.0" />
-      <Text layoutX="371.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination :" AnchorPane.bottomAnchor="84.0" />
-      <Text layoutX="377.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier :" AnchorPane.bottomAnchor="28.0" />
-      <Text layoutX="684.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" AnchorPane.bottomAnchor="84.0" />
-      <Text layoutX="669.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number tickets :" AnchorPane.bottomAnchor="28.0" />
-      <Text layoutX="915.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departion pos :" AnchorPane.bottomAnchor="84.0" />
-      <TextField fx:id="Distination" layoutX="468.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
-      <TextField fx:id="Price" layoutX="747.0" layoutY="495.0" prefHeight="31.0" prefWidth="83.0" AnchorPane.bottomAnchor="79.0" />
-      <DatePicker fx:id="Date" layoutX="116.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
-      <TextField fx:id="Pos" layoutX="1042.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
-      <TextField fx:id="Type" layoutX="107.0" layoutY="551.0" AnchorPane.bottomAnchor="23.0" />
-      <TextField fx:id="Cashier" layoutX="447.0" layoutY="540.0" AnchorPane.bottomAnchor="23.0" />
-      <TextField fx:id="Number_Tickets" layoutX="789.0" layoutY="540.0" AnchorPane.bottomAnchor="23.0" />
-      <Button fx:id="E_ADD" layoutX="1046.0" layoutY="551.0" mnemonicParsing="false" onAction="#ADD" prefHeight="31.0" prefWidth="270.0" text="Add New Travel" AnchorPane.bottomAnchor="23.0" />
+      <Text layoutX="283.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="680.0" layoutY="515.951171875" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination :" AnchorPane.bottomAnchor="84.048828125" />
+      <Text layoutX="545.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="973.0" layoutY="515.951171875" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" AnchorPane.bottomAnchor="84.048828125" />
+      <Text layoutX="837.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number tickets :" AnchorPane.bottomAnchor="28.0" />
+      <Text layoutX="14.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departion pos :" AnchorPane.bottomAnchor="28.0" />
+      <TextField fx:id="Distination" layoutX="777.0" layoutY="495.0" AnchorPane.bottomAnchor="79.0" />
+      <TextField fx:id="Price" layoutX="1036.0" layoutY="495.0" prefHeight="31.0" prefWidth="83.0" AnchorPane.bottomAnchor="79.0" />
+      <DatePicker fx:id="Date" layoutX="116.0" layoutY="495.0" prefHeight="31.0" prefWidth="162.0" AnchorPane.bottomAnchor="79.0" />
+      <TextField fx:id="Pos" layoutX="127.0" layoutY="551.0" prefHeight="31.0" prefWidth="137.0" AnchorPane.bottomAnchor="23.0" />
+      <TextField fx:id="Type" layoutX="339.0" layoutY="551.0" AnchorPane.bottomAnchor="23.0" />
+      <TextField fx:id="Cashier" layoutX="615.0" layoutY="551.0" AnchorPane.bottomAnchor="23.0" />
+      <TextField fx:id="Number_Tickets" layoutX="957.0" layoutY="551.0" AnchorPane.bottomAnchor="23.0" />
+      <Button fx:id="E_ADD" layoutX="1156.0" layoutY="531.0" mnemonicParsing="false" onAction="#ADD" prefHeight="51.0" prefWidth="168.0" text="Add New Travel" AnchorPane.bottomAnchor="23.0" />
+      <Text layoutX="294.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :" />
+      <ComboBox fx:id="hour" layoutX="344.0" layoutY="495.0" prefHeight="31.0" prefWidth="108.0" />
+      <ComboBox fx:id="mins" layoutX="491.0" layoutY="495.0" prefHeight="31.0" prefWidth="120.0" />
+      <Label layoutX="471.0" layoutY="500.0" text=":" />
    </children>
 </AnchorPane>

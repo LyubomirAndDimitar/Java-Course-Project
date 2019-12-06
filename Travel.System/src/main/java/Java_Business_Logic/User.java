@@ -2,7 +2,6 @@ package Java_Business_Logic;
 
 import javafx.beans.property.SimpleStringProperty;
 
-
 public class User {
 	private SimpleStringProperty user_ID;
 	private SimpleStringProperty user_Name;
@@ -11,9 +10,9 @@ public class User {
 	private SimpleStringProperty user_Addres;
 	private SimpleStringProperty user_Email;
 	private SimpleStringProperty user_Phone;
-	private SimpleStringProperty  user_Role;
-	private SimpleStringProperty  user_City;
-	private SimpleStringProperty  user_ManagerID;
+	private SimpleStringProperty user_Role;
+	private SimpleStringProperty user_City;
+	private SimpleStringProperty user_ManagerID;
 
 	public User() {
 	}
@@ -21,12 +20,11 @@ public class User {
 	public User(String username, String password) {
 		user_UserName.setValue(username);
 		user_Password.setValue(password);
-		
-		
+
 	}
+
 	public User(String ID, String Name, String UserName, String Password, String Addres, String Email, String Phone,
 			String Role, String City, String ManagerID) {
-		super();
 		this.user_ID = new SimpleStringProperty(ID);
 		this.user_Name = new SimpleStringProperty(Name);
 		this.user_UserName = new SimpleStringProperty(UserName);
@@ -37,6 +35,15 @@ public class User {
 		this.user_Role = new SimpleStringProperty(Role);
 		this.user_City = new SimpleStringProperty(City);
 		this.user_ManagerID = new SimpleStringProperty(ManagerID);
+	}
+
+	public User(String ID, String Name, String Phone, String Addres, String Email, String City) {
+		this.user_ID = new SimpleStringProperty(ID);
+		this.user_Name = new SimpleStringProperty(Name);
+		this.user_Addres = new SimpleStringProperty(Addres);
+		this.user_Email = new SimpleStringProperty(Email);
+		this.user_Phone = new SimpleStringProperty(Phone);
+		this.user_City = new SimpleStringProperty(City);
 	}
 
 	public String getUser_ID() {
@@ -100,7 +107,8 @@ public class User {
 	}
 
 	public void setUser_Role(String Role) {
-		this.user_Role.set(Role);;
+		this.user_Role.set(Role);
+		;
 	}
 
 	public String getUser_City() {

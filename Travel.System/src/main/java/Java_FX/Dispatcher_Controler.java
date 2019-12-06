@@ -40,8 +40,17 @@ public void Travel_Button(ActionEvent event) {
 
 }
 @FXML
-void Queryr_Cashier(ActionEvent event) {
+void Queryr_Cashier(ActionEvent event)  {
+	try {
+		Stage stage = new Stage();
+		Parent root = FXMLLoader.load(getClass().getResource("/Query_My_Cashier.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 
+	} catch (IOException e) {
+		e.printStackTrace();
+		System.out.println("ERROR FACK");
+	}
 }
 
 }

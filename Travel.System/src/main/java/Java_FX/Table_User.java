@@ -142,12 +142,12 @@ public class Table_User implements Initializable {
 			prstmt.setInt(8, city);
 			prstmt.setInt(9, manager);
 			prstmt.executeUpdate();
-			
-			// JOptionPane.showMessageDialog(null, "Insert suse");
+			// For_Table();
+			JOptionPane.showMessageDialog(null, "Insert suse");
 		} catch (SQLException | HeadlessException ex) {
 			JOptionPane.showMessageDialog(null, "Insert notsuse");
-		} // //
-		conn.createStatement().executeUpdate(SQL);
+		}
+		// conn.createStatement().executeUpdate(SQL);
 
 		// Users user = new Users(rs.getString(1), rs.getString(2), rs.getString(3),
 		// rs.getString(4), rs.getString(5), // rs.getString(6), rs.getString(7),
@@ -163,8 +163,7 @@ public class Table_User implements Initializable {
 	 */
 	ObservableList<User> Oblist = FXCollections.observableArrayList();
 
-	public void initialize(URL location, ResourceBundle resource) {
-
+	private void For_Table() {
 		try {
 			String SQL = "SELECT *FROM users";
 			Connection conn = JDBC_Dao.getConnction();
@@ -191,7 +190,10 @@ public class Table_User implements Initializable {
 
 			e.printStackTrace();
 		}
+	}
 
+	public void initialize(URL location, ResourceBundle resource) {
+		For_Table();
 	}
 
 }
