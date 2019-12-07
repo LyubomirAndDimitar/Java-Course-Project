@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -33,7 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class Query_Sale_Controler {
+public class Query_Sale_Controler implements Initializable {
 	private Connection conn = null;
 	private PreparedStatement prstmt = null;
 	@FXML
@@ -100,6 +102,12 @@ public class Query_Sale_Controler {
 
 	public void initialize(URL location, ResourceBundle resource) {
 		For_Table();
+		Date date = new Date();
+		long time = date.getTime();
+		Timestamp timestamp = new Timestamp(time);//System.currentTimeMillis());
+		String times = timestamp.toString();
+		System.out.println("Current Time Stamp: " + times);
+	//	System.out.println();
 	}
 
 	@FXML
