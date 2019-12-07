@@ -7,18 +7,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
 
 import JDBC.JDBC_Dao;
 import Java_Business_Logic.Travel;
-import Java_Business_Logic.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,13 +25,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class Query_Sale_Controler implements Initializable {
 	private Connection conn = null;
@@ -104,10 +100,10 @@ public class Query_Sale_Controler implements Initializable {
 		For_Table();
 		Date date = new Date();
 		long time = date.getTime();
-		Timestamp timestamp = new Timestamp(time);//System.currentTimeMillis());
+		Timestamp timestamp = new Timestamp(time);// System.currentTimeMillis());
 		String times = timestamp.toString();
 		System.out.println("Current Time Stamp: " + times);
-	//	System.out.println();
+		// System.out.println();
 	}
 
 	@FXML
@@ -124,11 +120,14 @@ public class Query_Sale_Controler implements Initializable {
 	}
 
 	private static final String SQL = "INSERT INTO sale (Date_hour,Cashier,Travel,Customer) VALUES (?,?,?,?);";
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+	// private static final SimpleDateFormat sdf = new
+	// SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 
 	@FXML
 	void Sale(ActionEvent event) {
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		Date date = new Date();
+		long time = date.getTime();
+		Timestamp timestamp = new Timestamp(time);// System.currentTimeMillis());
 		String times = timestamp.toString();
 		int Cashierid = Integer.parseInt(JDBC_Dao.ID_USER);
 		int Travelid = Integer.parseInt(Travel_ID.getText());
@@ -136,14 +135,17 @@ public class Query_Sale_Controler implements Initializable {
 
 		try {
 			conn = JDBC_Dao.getConnction();
-			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
-			prstmt.setString(1, times);
-			prstmt.setInt(2, Cashierid);
-			prstmt.setInt(3, Travelid);
-			prstmt.setInt(4, Custemerid);
-			prstmt.executeUpdate();
+			boolean update = JDBC_Dao.Updates(Travelid, Custemerid);
+			if (update) {
+				prstmt = (PreparedStatement) conn.prepareStatement(SQL);
+				prstmt.setString(1, times);
+				prstmt.setInt(2, Cashierid);
+				prstmt.setInt(3, Travelid);
+				prstmt.setInt(4, Custemerid);
+				prstmt.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Insert suse");
+			}
 
-			JOptionPane.showMessageDialog(null, "Insert suse");
 		} catch (SQLException | HeadlessException ex) {
 			JOptionPane.showMessageDialog(null, "Insert notsuse");
 		}

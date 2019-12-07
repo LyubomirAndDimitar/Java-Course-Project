@@ -10,7 +10,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 
 import java.awt.HeadlessException;
 import java.net.URL;
@@ -22,21 +21,15 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import com.mysql.jdbc.PreparedStatement;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import JDBC.JDBC_Dao;
 import Java_Business_Logic.Travel;
-import Java_Business_Logic.User;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Window;
 
 public class Dispatcher_Travel_Controler implements Initializable {
-	private Connection conn = null;
 	private PreparedStatement prstmt = null;
 	private String[] arr = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
 			"17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34",
@@ -76,7 +69,6 @@ public class Dispatcher_Travel_Controler implements Initializable {
 	private TableColumn<Travel, String> T_Tickes_L;
 	@FXML
 	private TextField Distination;
-
 	@FXML
 	private TextField Price;
 
@@ -159,8 +151,10 @@ public class Dispatcher_Travel_Controler implements Initializable {
 	@FXML
 
 	void ADD(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
+
 		String DATE = Date.getPromptText();
 		System.out.println(DATE);
+
 		String hours = hour.getValue();
 		String min = mins.getValue();
 		String TIME = hours + ":" + min;
@@ -180,7 +174,6 @@ public class Dispatcher_Travel_Controler implements Initializable {
 		int cashier = Integer.parseInt(this.Cashier.getText());
 		int Number_tickets_l = 0;
 		int Number_tickets_f = Integer.parseInt(this.Number_Tickets.getText());
-		;
 
 		try {
 			String SQL = "insert into travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) "

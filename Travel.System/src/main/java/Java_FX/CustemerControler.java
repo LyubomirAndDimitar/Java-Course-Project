@@ -3,12 +3,8 @@ package Java_FX;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-
 import javax.swing.JOptionPane;
-
 import com.mysql.jdbc.PreparedStatement;
-
 import JDBC.JDBC_Dao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +24,7 @@ public class CustemerControler {
 
 	@FXML
 	private TextField Num_ticetc;
-	
+
 	private static final String SQL_CUS = "INSERT INTO customer (Full_Name,Address,Phone_Number,Number_tickets)"
 			+ " VALUES (?,?,?,?);";
 

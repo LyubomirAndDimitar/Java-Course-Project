@@ -1,16 +1,6 @@
 package Java_Business_Logic;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
-import JDBC.JDBC_Dao;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Travel {
 	private SimpleStringProperty travel_ID;

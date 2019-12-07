@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.Statement;
+
 public class JDBC_Dao {
 
 	// Replace below database url, username and password with your actual database
@@ -42,7 +46,7 @@ public class JDBC_Dao {
 			if (resultSet.next()) {
 				ID_USER = resultSet.getString("User_ID");
 				NAME_USER = resultSet.getString("Full_Name");
-				USER_NAME=resultSet.getString("User_Name");
+				USER_NAME = resultSet.getString("User_Name");
 				ROLE = resultSet.getInt("Role_ID");
 				PASSWORD = resultSet.getString("U_Password");
 				System.out.println(USER_NAME + " " + PASSWORD + " " + User_name + " " + password);
@@ -97,5 +101,85 @@ public class JDBC_Dao {
 				}
 			}
 		}
+	}
+
+	private static int N_T_E;
+	private static int N_T_S;
+	private static int C_T;
+
+	private static boolean Trav_T(int tr) {
+		String SELECT_T = "select Number_tickets_sold,Number_tickets_left from travel Whire Travel_ID=" + tr;
+		try (Connection connection = getConnction();
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_T);) {
+			ResultSet resultSet = preparedStatement.executeQuery();
+			N_T_E = Integer.parseInt(resultSet.getString("Number_tickets_sold"));
+			N_T_S = Integer.parseInt(resultSet.getString("Number_tickets_left"));
+			if (N_T_S != 0) {
+				return true;
+			} else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	private static boolean Cus_T(int customer) {
+		String SELECT_C = "select Number_tickets from customer Whire Customer_ID=" + customer;
+		try (Connection connection = getConnction();
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_C);) {
+			ResultSet resultSet = preparedStatement.executeQuery();
+			int C_T = Integer.parseInt(resultSet.getString("Number_tickets"));
+			if (C_T != 0) {
+				return true;
+			} else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	private static void Update_Travel(int Travel_ticketc) throws SQLException {
+		Connection conn = getConnction();
+		Statement stmt = (Statement) conn.createStatement();
+		String UPDATE_TRAVEL = "update travel SET  Number_tickets_sold=" + N_T_E + " ,Number_tickets_left= " + N_T_S
+				+ "WHERE Travel_ID= " + Travel_ticketc;
+		stmt.executeUpdate(UPDATE_TRAVEL);
+	}
+
+	private static void Update_Custemer(int Custemer_tickets) throws SQLException {
+		Connection conn = getConnction();
+		Statement stmt = (Statement) conn.createStatement();
+		String UPDATE_CUSTEMER = "update customer SET  Number_tickets=" + C_T + " WHERE Customer_ID= "
+				+ Custemer_tickets;
+		stmt.executeUpdate(UPDATE_CUSTEMER);
+	}
+
+	public static boolean Updates(int Travel_tickets, int Customer_tickets) throws SQLException {
+		try {
+			boolean Trav = Trav_T(Travel_tickets);
+			boolean Cus = Cus_T(Customer_tickets);
+			if (Trav && Cus) {
+				N_T_S--;
+				N_T_E++;
+				C_T--;
+				Update_Travel(Travel_tickets);
+				Update_Custemer(Customer_tickets);
+				return true;
+			} else if (Trav == false) {
+				JOptionPane.showMessageDialog(null, "No travel tickets");
+				return false;
+			} else if (Cus == false) {
+				JOptionPane.showMessageDialog(null, "No customer tickets");
+				return false;
+			} else {
+				JOptionPane.showMessageDialog(null, "No travel and customer tickets");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

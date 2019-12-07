@@ -10,7 +10,6 @@ import JDBC.JDBC_Dao;
 import Java_Business_Logic.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -44,15 +43,13 @@ public class Table_Query_Cashier implements Initializable {
 
 		try {
 			String SQL = "SELECT users.User_ID,users.Full_Name,users.Phone_Number,users.Address,users.Email,city.City_Name "
-					+ "FROM users "
-					+ "JOIN city "
-					+ "ON users.City_ID=city.City_ID"
-					+ "  WHERE Manager_ID="+JDBC_Dao.ID_USER;
+					+ "FROM users " + "JOIN city " + "ON users.City_ID=city.City_ID" + "  WHERE Manager_ID="
+					+ JDBC_Dao.ID_USER;
 			Connection conn = JDBC_Dao.getConnction();
 			ResultSet rs = conn.createStatement().executeQuery(SQL);
 			while (rs.next()) {
-				Oblist.add(
-						new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6)));
+				Oblist.add(new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6)));
 
 			}
 
