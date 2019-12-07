@@ -108,16 +108,18 @@ public class JDBC_Dao {
 	private static int C_T;
 
 	private static boolean Trav_T(int tr) {
-		String SELECT_T = "select Number_tickets_sold,Number_tickets_left from travel Whire Travel_ID=" + tr;
+		String SELECT_T = "select Number_tickets_sold,Number_tickets_left from travel WHERE Travel_ID=" + tr;
 		try (Connection connection = getConnction();
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_T);) {
 			ResultSet resultSet = preparedStatement.executeQuery();
-			N_T_E = Integer.parseInt(resultSet.getString("Number_tickets_sold"));
-			N_T_S = Integer.parseInt(resultSet.getString("Number_tickets_left"));
-			if (N_T_S != 0) {
-				return true;
-			} else
-				return false;
+			if (resultSet.next()) {
+				N_T_E = Integer.parseInt(resultSet.getString("Number_tickets_sold"));
+				N_T_S = Integer.parseInt(resultSet.getString("Number_tickets_left"));
+				if (N_T_S != 0) {
+					return true;
+				} else
+					return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -125,38 +127,48 @@ public class JDBC_Dao {
 	}
 
 	private static boolean Cus_T(int customer) {
-		String SELECT_C = "select Number_tickets from customer Whire Customer_ID=" + customer;
+		String SELECT_C = "select Number_tickets from customer WHERE Customer_ID=" + customer;
 		try (Connection connection = getConnction();
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_C);) {
 			ResultSet resultSet = preparedStatement.executeQuery();
-			int C_T = Integer.parseInt(resultSet.getString("Number_tickets"));
-			if (C_T != 0) {
-				return true;
-			} else
-				return false;
+
+			if (resultSet.next()) {
+				C_T = Integer.parseInt(resultSet.getString("Number_tickets"));
+
+				if (C_T != 0) {
+					return true;
+				} else
+					return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 
-	private static void Update_Travel(int Travel_ticketc) throws SQLException {
-		Connection conn = getConnction();
-		Statement stmt = (Statement) conn.createStatement();
+	private static void Update_Travel(int Travel_tickets) throws SQLException {
 		String UPDATE_TRAVEL = "update travel SET  Number_tickets_sold=" + N_T_E + " ,Number_tickets_left= " + N_T_S
-				+ "WHERE Travel_ID= " + Travel_ticketc;
-		stmt.executeUpdate(UPDATE_TRAVEL);
+				+ "WHERE Travel_ID= " + Travel_tickets;
+		try (Connection conn = getConnction(); Statement stmt = (Statement) conn.createStatement();) {
+
+			stmt.executeUpdate(UPDATE_TRAVEL);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void Update_Custemer(int Custemer_tickets) throws SQLException {
-		Connection conn = getConnction();
-		Statement stmt = (Statement) conn.createStatement();
-		String UPDATE_CUSTEMER = "update customer SET  Number_tickets=" + C_T + " WHERE Customer_ID= "
+		String UPDATE_CUSTEMER = "update customer SET  Number_tickets=" + C_T + " WHERE Customer_ID="
 				+ Custemer_tickets;
-		stmt.executeUpdate(UPDATE_CUSTEMER);
+		try (Connection conn = getConnction(); Statement stmt = (Statement) conn.createStatement();) {
+
+			stmt.executeUpdate(UPDATE_CUSTEMER);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public static boolean Updates(int Travel_tickets, int Customer_tickets) throws SQLException {
+	public static void Updates(int Travel_tickets, int Customer_tickets) throws SQLException {
 		try {
 			boolean Trav = Trav_T(Travel_tickets);
 			boolean Cus = Cus_T(Customer_tickets);
@@ -166,20 +178,21 @@ public class JDBC_Dao {
 				C_T--;
 				Update_Travel(Travel_tickets);
 				Update_Custemer(Customer_tickets);
-				return true;
+				System.out.println(N_T_E + "/" + N_T_S + "/" + C_T);
+				// return true;
 			} else if (Trav == false) {
 				JOptionPane.showMessageDialog(null, "No travel tickets");
-				return false;
+				// return false;
 			} else if (Cus == false) {
 				JOptionPane.showMessageDialog(null, "No customer tickets");
-				return false;
+				// return false;
 			} else {
 				JOptionPane.showMessageDialog(null, "No travel and customer tickets");
-				return false;
+				// return false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
+		// return false;
 	}
 }

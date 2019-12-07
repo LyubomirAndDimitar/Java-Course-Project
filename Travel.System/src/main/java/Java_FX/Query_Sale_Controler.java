@@ -135,8 +135,9 @@ public class Query_Sale_Controler implements Initializable {
 
 		try {
 			conn = JDBC_Dao.getConnction();
-			boolean update = JDBC_Dao.Updates(Travelid, Custemerid);
-			if (update) {
+			//boolean update = 
+			//if (update) {
+			JDBC_Dao.Updates(Travelid, Custemerid);
 				prstmt = (PreparedStatement) conn.prepareStatement(SQL);
 				prstmt.setString(1, times);
 				prstmt.setInt(2, Cashierid);
@@ -144,7 +145,7 @@ public class Query_Sale_Controler implements Initializable {
 				prstmt.setInt(4, Custemerid);
 				prstmt.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Insert suse");
-			}
+			//}
 
 		} catch (SQLException | HeadlessException ex) {
 			JOptionPane.showMessageDialog(null, "Insert notsuse");
