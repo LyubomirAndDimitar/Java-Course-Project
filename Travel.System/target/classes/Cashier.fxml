@@ -5,47 +5,62 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Cashier_Controler">
-   <children>
-      <Text layoutX="64.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="79.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="104.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="№ :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fx:id="C_Name" layoutX="171.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="245.00001238286495">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fx:id="C_ID" layoutX="174.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="245.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="171.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier" wrappingWidth="179.1572265625">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Button layoutX="241.0" layoutY="271.0" mnemonicParsing="false" onAction="#QueryAndSale" prefHeight="39.0" prefWidth="526.0" text="My Travels/New Sales">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="241.0" layoutY="337.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="526.0" text="Query my sales">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0"
+	prefWidth="806.0" xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="Java_FX.Cashier_Controler">
+	<children>
+		<Text layoutX="64.0" layoutY="90.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Position :">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text layoutX="79.0" layoutY="138.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Name :">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text layoutX="104.0" layoutY="182.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="№ :">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text fx:id="C_Name" layoutX="171.0" layoutY="143.0"
+			strokeType="OUTSIDE" strokeWidth="0.0"
+			wrappingWidth="245.00001238286495">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text fx:id="C_ID" layoutX="174.0" layoutY="182.0"
+			strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="245.0">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text layoutX="171.0" layoutY="90.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Cashier" wrappingWidth="179.1572265625">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Button layoutX="241.0" layoutY="271.0" mnemonicParsing="false"
+			onAction="#QueryAndSale" prefHeight="39.0" prefWidth="526.0"
+			text="My Travels/New Sales">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Button>
+		<Button layoutX="241.0" layoutY="337.0" mnemonicParsing="false"
+			onAction="#Query_my_sales" prefHeight="39.0" prefWidth="526.0"
+			text="Query my sales">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Button>
+	</children>
 </AnchorPane>

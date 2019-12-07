@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Query_Sale_Controler">
    <children>
       <TableView fx:id="Table_Travel" layoutX="22.0" layoutY="94.0" prefHeight="459.0" prefWidth="1098.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
@@ -23,10 +22,10 @@
         </columns>
       </TableView>
       <Button layoutX="587.0" layoutY="501.0" mnemonicParsing="false" onAction="#Sale" prefHeight="25.0" prefWidth="110.0" text="SaLe" AnchorPane.bottomAnchor="75.0" />
-      <Text layoutX="60.0" layoutY="504.63671875" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel ID :" AnchorPane.bottomAnchor="79.3515625" />
+      <Text layoutX="23.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel ID :" AnchorPane.bottomAnchor="80.2353515625" />
       <Button layoutX="955.0" layoutY="501.0" mnemonicParsing="false" onAction="#New_Custemer" prefHeight="25.0" prefWidth="110.0" text="New Custemer" AnchorPane.bottomAnchor="75.0" />
-      <TextField fx:id="Travel_ID" layoutX="124.0" layoutY="484.0" AnchorPane.bottomAnchor="75.0" />
-      <TextField fx:id="Custemer_ID" layoutX="369.0" layoutY="487.0" />
-      <Text layoutX="309.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custemer:" />
+      <TextField fx:id="Travel_ID" layoutX="100.0" layoutY="481.0" AnchorPane.bottomAnchor="75.0" />
+      <TextField fx:id="Custemer_ID" layoutX="371.0" layoutY="481.0" />
+      <Text layoutX="296.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custemer:" />
    </children>
 </AnchorPane>

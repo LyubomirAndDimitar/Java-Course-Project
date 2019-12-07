@@ -41,6 +41,20 @@ public class Travel {
 
 	}
 
+	public Travel(String ID, String Date, String Destination, String Price, String Pos, String Type,
+			String tickets_first, String tickets_last) {
+
+		this.travel_ID = new SimpleStringProperty(ID);
+		this.travel_Date = new SimpleStringProperty(Date);
+		this.travel_Destination = new SimpleStringProperty(Destination);
+		this.travel_Price = new SimpleStringProperty(Price);
+		this.travel_Pos = new SimpleStringProperty(Pos);
+		this.travel_Type = new SimpleStringProperty(Type);
+		this.travel_tickets_first = new SimpleStringProperty(tickets_first);
+		this.travel_tickets_last = new SimpleStringProperty(tickets_last);
+
+	}
+
 	public String getUser_ID() {
 		return travel_ID.get();
 	}
@@ -112,5 +126,5 @@ public class Travel {
 	public void setUser_City(String tickets_last) {
 		this.travel_tickets_last.set(tickets_last);
 	}
-	
+
 }

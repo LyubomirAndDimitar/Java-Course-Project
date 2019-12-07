@@ -98,7 +98,7 @@ public class AdminController implements Initializable {
 					stage.setScene(new Scene(root));
 				}
 				if (JDBC_Dao.ROLE == 4) {
-					Parent root = FXMLLoader.load(getClass().getResource("/CashierFXML.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Cashier.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				stage.show();

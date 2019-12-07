@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import JDBC.JDBC_Dao;
-import Java_Business_Logic.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class LoginController implements Initializable {
+public class LoginController {
 
 	@FXML
 	private TextField UserName;
@@ -36,7 +35,6 @@ public class LoginController implements Initializable {
 	public void login(ActionEvent event) throws SQLException, ClassNotFoundException {
 
 		Window owner = submitButton.getScene().getWindow();
-
 
 		if (UserName.getText().isEmpty()) {
 			showAlert(Alert.AlertType.ERROR, owner, "Form Error!", "Please enter your email id");
@@ -59,22 +57,23 @@ public class LoginController implements Initializable {
 			// infoBox("Login Successful!", null, "Failed");//
 
 			try {
-
+				int ROLE = JDBC_Dao.ROLE;
+				System.out.println(ROLE);
 				Stage stage = new Stage();
-				if (JDBC_Dao.ROLE == 1) {
+				if (ROLE == 1) {
 					Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
 					stage.setScene(new Scene(root));
 					// JDBC_Dao.getConnction();
 					// dminController.A_Name.setText(JDBC_Dao.NAME_USER);
 				}
 
-				if (JDBC_Dao.ROLE == 3) {
+				if (ROLE == 3) {
 
 					Parent root = FXMLLoader.load(getClass().getResource("/DispatcherFXML.fxml"));
 					stage.setScene(new Scene(root));
 				}
-				if (JDBC_Dao.ROLE == 4) {
-					Parent root = FXMLLoader.load(getClass().getResource("/CashierFXML.fxml"));
+				if (ROLE == 4) {
+					Parent root = FXMLLoader.load(getClass().getResource("/Cashier.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				stage.show();
@@ -105,9 +104,4 @@ public class LoginController implements Initializable {
 		alert.show();
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-
-	}
 }

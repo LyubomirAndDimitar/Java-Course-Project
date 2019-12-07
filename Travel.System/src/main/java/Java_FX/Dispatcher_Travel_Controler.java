@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import com.mysql.jdbc.PreparedStatement;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import JDBC.JDBC_Dao;
 import Java_Business_Logic.Travel;
 import Java_Business_Logic.User;
@@ -36,13 +38,13 @@ import javafx.stage.Window;
 public class Dispatcher_Travel_Controler implements Initializable {
 	private Connection conn = null;
 	private PreparedStatement prstmt = null;
-	private ObservableList<String> Hours = FXCollections.observableArrayList("0", "1", "2", "3", "4", "5", "6", "7",
-			"8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23");
-	private ObservableList<String> Mins = FXCollections.observableArrayList("0", "1", "2", "3", "4", "5", "6", "7", "8",
-			"9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-			"27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44",
-			"45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59");
+	private String[] arr = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+			"17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34",
+			"35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52",
+			"53", "54", "55", "56", "57", "58", "59" };
 
+	private ObservableList<String> Hours = FXCollections.observableArrayList();
+	private ObservableList<String> Mins = FXCollections.observableArrayList();
 	@FXML
 	private TableView<Travel> Table_UTravel;
 
@@ -105,9 +107,16 @@ public class Dispatcher_Travel_Controler implements Initializable {
 	ObservableList<Travel> Oblist = FXCollections.observableArrayList();
 
 	public void initialize(URL location, ResourceBundle resource) {
+		for (int i = 0; i < 60; i++) {
+			Mins.add(arr[i]);
+		}
+		for (int i = 0; i < 24; i++) {
+			Hours.add(arr[i]);
+		}
+
 		hour.setValue("--");
 		hour.setItems(Hours);
-		
+
 		mins.setValue("--");
 		mins.setItems(Mins);
 		try {
@@ -115,9 +124,8 @@ public class Dispatcher_Travel_Controler implements Initializable {
 			Connection conn = JDBC_Dao.getConnction();
 			ResultSet rs = conn.createStatement().executeQuery(SQL);
 			while (rs.next()) {
-				Oblist.add(
-						new Travel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-								rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
+				Oblist.add(new Travel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
 
 			}
 
@@ -130,17 +138,15 @@ public class Dispatcher_Travel_Controler implements Initializable {
 			T_Casher.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Cashier_ID"));
 			T_Tickes_F.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_first"));
 			T_Tickes_L.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_last"));
-/*travel_ID;
-	private SimpleStringProperty travel_Date;
-	private SimpleStringProperty travel_Destination;
-	private SimpleStringProperty travel_Price;
-	private SimpleStringProperty travel_Pos;
-	private SimpleStringProperty travel_Type;
-	private SimpleStringProperty travel_Cashier_ID;
-	private SimpleStringProperty travel_tickets_first;
-	private SimpleStringProperty travel_tickets_last;
-*/
-			
+			/*
+			 * travel_ID; private SimpleStringProperty travel_Date; private
+			 * SimpleStringProperty travel_Destination; private SimpleStringProperty
+			 * travel_Price; private SimpleStringProperty travel_Pos; private
+			 * SimpleStringProperty travel_Type; private SimpleStringProperty
+			 * travel_Cashier_ID; private SimpleStringProperty travel_tickets_first; private
+			 * SimpleStringProperty travel_tickets_last;
+			 */
+
 			Table_UTravel.setItems(Oblist);
 
 		} catch (SQLException e) {
@@ -153,15 +159,19 @@ public class Dispatcher_Travel_Controler implements Initializable {
 	@FXML
 
 	void ADD(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
-		String DATE = Date.getPromptText();System.out.println(DATE);
-		String hours=hour.getValue();
-		String min=mins.getValue();
-		String TIME =hours+":"+min;System.out.println(TIME);
+		String DATE = Date.getPromptText();
+		System.out.println(DATE);
+		String hours = hour.getValue();
+		String min = mins.getValue();
+		String TIME = hours + ":" + min;
+		System.out.println(TIME);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-		//Timestamp()
+		// Timestamp()
 		System.out.println();
-		
-		//Date dates = simpleDateFormat.parse(DATE);
+
+		Date dates = simpleDateFormat.parse(DATE);
+		String T = dates.toString() + TIME;
+		System.out.println(T);
 		String Travel_Destination = this.Distination.getText();
 		double price = Double.parseDouble(Price.getText());
 		int pos = Integer.parseInt(this.Pos.getText());
@@ -169,15 +179,16 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 		int cashier = Integer.parseInt(this.Cashier.getText());
 		int Number_tickets_l = 0;
-		int Number_tickets_f = Integer.parseInt(this.Number_Tickets.getText());;
+		int Number_tickets_f = Integer.parseInt(this.Number_Tickets.getText());
+		;
 
 		try {
-			String SQL ="insert into travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) "
+			String SQL = "insert into travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) "
 					+ "values(NULL,?,?,?,?,?,?,?);";
-					
+
 			Connection conn = JDBC_Dao.getConnction();
 			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
-			//prstmt.setDate(1, );
+			// prstmt.setDate(1, );
 			prstmt.setString(2, Travel_Destination);
 			prstmt.setDouble(3, price);
 			prstmt.setInt(4, pos);

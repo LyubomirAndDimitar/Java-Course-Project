@@ -28,6 +28,7 @@ public class CustemerControler {
 
 	@FXML
 	private TextField Num_ticetc;
+	
 	private static final String SQL_CUS = "INSERT INTO customer (Full_Name,Address,Phone_Number,Number_tickets)"
 			+ " VALUES (?,?,?,?);";
 
