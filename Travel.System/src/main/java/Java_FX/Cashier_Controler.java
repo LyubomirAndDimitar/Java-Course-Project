@@ -32,6 +32,10 @@ public class Cashier_Controler {
 	}
 
 	@FXML
-	void Query_my_sales(ActionEvent event) {
+	void Query_my_sales(ActionEvent event) throws IOException {
+		Stage stage = new Stage();
+		Parent root = FXMLLoader.load(getClass().getResource("/Sale.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 }
