@@ -108,7 +108,8 @@ public class JDBC_Dao {
 	private static int C_T;
 
 	private static boolean Trav_T(int tr) {
-		String SELECT_T = "select Number_tickets_sold,Number_tickets_left from travel WHERE Travel_ID=" + tr;
+		String trStr=((Integer)tr).toString();
+		String SELECT_T = "select Number_tickets_sold,Number_tickets_left from travel WHERE Travel_ID=" + trStr +";" ;
 		try (Connection connection = getConnction();
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_T);) {
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -127,7 +128,8 @@ public class JDBC_Dao {
 	}
 
 	private static boolean Cus_T(int customer) {
-		String SELECT_C = "select Number_tickets from customer WHERE Customer_ID=" + customer;
+		String cusStr=((Integer)customer).toString();
+		String SELECT_C = "select Number_tickets from customer WHERE Customer_ID=" + cusStr+";";
 		try (Connection connection = getConnction();
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_C);) {
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -149,9 +151,9 @@ public class JDBC_Dao {
 	private static void Update_Travel(int Travel_tickets) throws SQLException {
 		String UPDATE_TRAVEL = "update travel SET  Number_tickets_sold=" + N_T_E + " ,Number_tickets_left= " + N_T_S
 				+ "WHERE Travel_ID= " + Travel_tickets;
-		try (Connection conn = getConnction(); Statement stmt = (Statement) conn.createStatement();) {
+		try (Connection conn = getConnction(); Statement prstmt = (Statement) conn.createStatement();) {
 
-			stmt.executeUpdate(UPDATE_TRAVEL);
+			prstmt.executeUpdate(UPDATE_TRAVEL);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
