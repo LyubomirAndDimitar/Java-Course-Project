@@ -159,7 +159,7 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 		try {
 			String SQL = "insert into travel (T_Date,Travel_Destination,Price,Departion_Pos,Travel_Type,Cashier_ID,Number_tickets_sold,Number_tickets_left) "
-					+ "values(NULL,?,?,?,?,?,?,?);";
+					+ "values(?,?,?,?,?,?,?,?);";
 
 			Connection conn = JDBC_Dao.getConnction();
 			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
