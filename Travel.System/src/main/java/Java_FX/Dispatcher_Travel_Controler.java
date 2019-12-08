@@ -16,6 +16,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
@@ -31,7 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Dispatcher_Travel_Controler implements Initializable {
 	private PreparedStatement prstmt = null;
-	private String[] arr = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+	private String[] arr = { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16",
 			"17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34",
 			"35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52",
 			"53", "54", "55", "56", "57", "58", "59" };
@@ -112,9 +113,9 @@ public class Dispatcher_Travel_Controler implements Initializable {
 		mins.setValue("--");
 		mins.setItems(Mins);
 		try {
-			String SQL = "SELECT *FROM travel";
 			Connection conn = JDBC_Dao.getConnction();
-			ResultSet rs = conn.createStatement().executeQuery(SQL);
+			String SQL_T = "SELECT * FROM travel";
+			ResultSet rs = conn.createStatement().executeQuery(SQL_T);
 			while (rs.next()) {
 				Oblist.add(new Travel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
@@ -130,15 +131,6 @@ public class Dispatcher_Travel_Controler implements Initializable {
 			T_Casher.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Cashier_ID"));
 			T_Tickes_F.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_first"));
 			T_Tickes_L.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_tickets_last"));
-			/*
-			 * travel_ID; private SimpleStringProperty travel_Date; private
-			 * SimpleStringProperty travel_Destination; private SimpleStringProperty
-			 * travel_Price; private SimpleStringProperty travel_Pos; private
-			 * SimpleStringProperty travel_Type; private SimpleStringProperty
-			 * travel_Cashier_ID; private SimpleStringProperty travel_tickets_first; private
-			 * SimpleStringProperty travel_tickets_last;
-			 */
-
 			Table_UTravel.setItems(Oblist);
 
 		} catch (SQLException e) {
@@ -152,20 +144,10 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 	void ADD(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
 
-		String DATE = Date.getPromptText();
-		System.out.println(DATE);
-
-		String hours = hour.getValue();
-		String min = mins.getValue();
-		String TIME = hours + ":" + min;
-		System.out.println(TIME);
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-		// Timestamp()
-		System.out.println();
-
-		Date dates = simpleDateFormat.parse(DATE);
-		String T = dates.toString() + TIME;
-		System.out.println(T);
+		String date_time = Date.getValue().toString() + " " + hour.getValue() + ":" + mins.getValue() + ":00.000000000";
+		
+		Timestamp ts = Timestamp.valueOf(date_time);
+		System.out.println(ts);
 		String Travel_Destination = this.Distination.getText();
 		double price = Double.parseDouble(Price.getText());
 		int pos = Integer.parseInt(this.Pos.getText());
@@ -181,7 +163,7 @@ public class Dispatcher_Travel_Controler implements Initializable {
 
 			Connection conn = JDBC_Dao.getConnction();
 			prstmt = (PreparedStatement) conn.prepareStatement(SQL);
-			// prstmt.setDate(1, );
+			prstmt.setTimestamp(1, ts);
 			prstmt.setString(2, Travel_Destination);
 			prstmt.setDouble(3, price);
 			prstmt.setInt(4, pos);
