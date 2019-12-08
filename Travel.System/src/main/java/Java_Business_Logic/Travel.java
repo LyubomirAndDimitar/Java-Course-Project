@@ -45,75 +45,75 @@ public class Travel {
 
 	}
 
-	public String getUser_ID() {
+	public String getTravel_ID() {
 		return travel_ID.get();
 	}
 
-	public void setUser_ID(String ID) {
+	public void setTravel_ID(String ID) {
 		this.travel_ID.set(ID);
 	}
 
-	public String getUser_Name() {
+	public String getTravel_Date() {
 		return travel_Date.get();
 	}
 
-	public void setUser_Name(String Date) {
+	public void setTravel_Date(String Date) {
 		this.travel_Date.set(Date);
 	}
 
-	public String getUser_UserName() {
+	public String getTravel_Destination() {
 		return travel_Destination.get();
 	}
 
-	public void setUser_UserName(String Destination) {
+	public void setTravel_Destination(String Destination) {
 		this.travel_Destination.set(Destination);
 	}
 
-	public String getUser_Password() {
+	public String getTravel_Price() {
 		return travel_Price.get();
 	}
 
-	public void setUser_Password(String Price) {
+	public void setTravel_Price(String Price) {
 		this.travel_Price.set(Price);
 	}
 
-	public String getUser_Addres() {
+	public String getTravel_Pos() {
 		return travel_Pos.get();
 	}
 
-	public void setUser_Addres(String Pos) {
+	public void setTravel_Pos(String Pos) {
 		this.travel_Pos.set(Pos);
 	}
 
-	public String getUser_Email() {
+	public String getTravel_Type() {
 		return travel_Type.get();
 	}
 
-	public void setUser_Email(String Type) {
+	public void setTravel_Type(String Type) {
 		this.travel_Type.set(Type);
 	}
 
-	public String getUser_Phone() {
+	public String getTravel_Cashier_ID() {
 		return travel_Cashier_ID.get();
 	}
 
-	public void setUser_Phone(String Cashier_ID) {
+	public void setTravel_Cashier_ID(String Cashier_ID) {
 		this.travel_Cashier_ID.set(Cashier_ID);
 	}
 
-	public String getUser_Role() {
+	public String getTravel_tickets_first() {
 		return travel_tickets_first.get();
 	}
 
-	public void setUser_Role(String tickets_first) {
+	public void setTravel_tickets_first(String tickets_first) {
 		this.travel_tickets_first.set(tickets_first);
 	}
 
-	public String getUser_City() {
+	public String getTravel_tickets_last() {
 		return travel_tickets_last.get();
 	}
 
-	public void setUser_City(String tickets_last) {
+	public void setTravel_tickets_last(String tickets_last) {
 		this.travel_tickets_last.set(tickets_last);
 	}
 
