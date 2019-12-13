@@ -14,7 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class Dispatcher_Controler implements Initializable {
+public class Dispatcher_MainController implements Initializable {
 
 	@FXML
 	private Label Name_D;
@@ -32,7 +32,7 @@ public class Dispatcher_Controler implements Initializable {
 	public void Travel_Button(ActionEvent event) {
 		try {
 			Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/Dispacher_Travel.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/Dispacher_AddNewTravel.fxml"));
 			stage.setScene(new Scene(root));
 			stage.show();
 

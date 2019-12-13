@@ -31,7 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class Query_Sale_Controler implements Initializable {
+public class Cashier_AddNewSaleController implements Initializable {
 	private Connection conn = null;
 	private PreparedStatement prstmt = null;
 	@FXML
@@ -44,7 +44,7 @@ public class Query_Sale_Controler implements Initializable {
 	private TableColumn<Travel, String> Date;
 
 	@FXML
-	private TableColumn<Travel, String> DEstination;
+	private TableColumn<Travel, String> Destination;
 
 	@FXML
 	private TableColumn<Travel, String> Price;
@@ -81,7 +81,7 @@ public class Query_Sale_Controler implements Initializable {
 
 			ID.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_ID"));
 			Date.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Date"));
-			DEstination.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Destination"));
+			Destination.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Destination"));
 			Price.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Price"));
 			Pos.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Pos"));
 			Type.setCellValueFactory(new PropertyValueFactory<Travel, String>("travel_Type"));
@@ -98,19 +98,13 @@ public class Query_Sale_Controler implements Initializable {
 
 	public void initialize(URL location, ResourceBundle resource) {
 		For_Table();
-		Date date = new Date();
-		long time = date.getTime();
-		Timestamp timestamp = new Timestamp(time);// System.currentTimeMillis());
-		String times = timestamp.toString();
-		System.out.println("Current Time Stamp: " + times);
-		// System.out.println();
 	}
 
 	@FXML
 	void New_Custemer(ActionEvent event) {
 		try {
 			Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/Custemer.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/Cashier_AddNewCustomer.fxml"));
 			stage.setScene(new Scene(root));
 			stage.show();
 
@@ -120,14 +114,12 @@ public class Query_Sale_Controler implements Initializable {
 	}
 
 	private static final String SQL = "INSERT INTO sale (Date_hour,Cashier,Travel,Customer) VALUES (?,?,?,?);";
-	// private static final SimpleDateFormat sdf = new
-	// SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 
 	@FXML
 	void Sale(ActionEvent event) {
 		Date date = new Date();
 		long time = date.getTime();
-		Timestamp timestamp = new Timestamp(time);// System.currentTimeMillis());
+		Timestamp timestamp = new Timestamp(time);
 		String times = timestamp.toString();
 		int Cashierid = Integer.parseInt(JDBC_Dao.ID_USER);
 		int Travelid = Integer.parseInt(Travel_ID.getText());
@@ -137,18 +129,20 @@ public class Query_Sale_Controler implements Initializable {
 			conn = JDBC_Dao.getConnction();
 			//boolean update = 
 			//if (update) {
-			JDBC_Dao.Updates(Travelid, Custemerid);
+			if(JDBC_Dao.Updates(Travelid, Custemerid)) {
 				prstmt = (PreparedStatement) conn.prepareStatement(SQL);
 				prstmt.setString(1, times);
 				prstmt.setInt(2, Cashierid);
 				prstmt.setInt(3, Travelid);
 				prstmt.setInt(4, Custemerid);
 				prstmt.executeUpdate();
-				JOptionPane.showMessageDialog(null, "Insert suse");
-			//}
+				JOptionPane.showMessageDialog(null, "Insert successful");
+			}
+			//else JOptionPane.showMessageDialog(null, "Insert not successful");
+
 
 		} catch (SQLException | HeadlessException ex) {
-			JOptionPane.showMessageDialog(null, "Insert notsuse");
+			JOptionPane.showMessageDialog(null, "Insert not successful");
 		}
 	}
 

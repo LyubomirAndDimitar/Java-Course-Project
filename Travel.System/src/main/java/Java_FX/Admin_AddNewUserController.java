@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javax.swing.JOptionPane;
 import com.mysql.jdbc.PreparedStatement;
 import JDBC.JDBC_Dao;
+import Java_Business_Logic.AlertHelper;
 import Java_Business_Logic.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,7 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 
 // Petq Ivanova,Petq,Petq_passswodd,Petq_60@gmail.com,Plovdiv mladost 5,0876532154,3,6,8
-public class Table_User implements Initializable {
+public class Admin_AddNewUserController implements Initializable {
 
 	private Connection conn = null;
 	private PreparedStatement prstmt = null;

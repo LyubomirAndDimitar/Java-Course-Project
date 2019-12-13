@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class LoginController {
+public class Login_Controller {
 
 	@FXML
 	private TextField UserName;
@@ -57,7 +57,7 @@ public class LoginController {
 				System.out.println(ROLE);
 				Stage stage = new Stage();
 				if (ROLE == 1) {
-					Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Admin_Main.fxml"));
 					stage.setScene(new Scene(root));
 					// JDBC_Dao.getConnction();
 					// dminController.A_Name.setText(JDBC_Dao.NAME_USER);
@@ -65,11 +65,11 @@ public class LoginController {
 
 				if (ROLE == 3) {
 
-					Parent root = FXMLLoader.load(getClass().getResource("/DispatcherFXML.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Dispatcher_Main.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				if (ROLE == 4) {
-					Parent root = FXMLLoader.load(getClass().getResource("/Cashier.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Cashier_Main.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				stage.show();

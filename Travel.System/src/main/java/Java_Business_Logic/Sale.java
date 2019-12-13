@@ -2,16 +2,16 @@ package Java_Business_Logic;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class Sale_C {
+public class Sale {
 	private SimpleStringProperty sale_ID;
 	private SimpleStringProperty sale_Date;
 	private SimpleStringProperty sale_Casher;
 	private SimpleStringProperty sale_Travel;
 	private SimpleStringProperty sale_Customer;
 	
-	 public Sale_C() {}
+	 public Sale() {}
 
-	public Sale_C(String sale_ID, String sale_Date, String sale_Casher,
+	public Sale(String sale_ID, String sale_Date, String sale_Casher,
 			String sale_Travel, String sale_Customer) {
 		super();
 		this.sale_ID = new SimpleStringProperty(sale_ID);

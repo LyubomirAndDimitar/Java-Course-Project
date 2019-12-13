@@ -10,7 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class CustemerControler {
+public class Cashier_AddNewCustomerController {
 	private Connection conn = null;
 	private PreparedStatement prstmt = null;
 	@FXML

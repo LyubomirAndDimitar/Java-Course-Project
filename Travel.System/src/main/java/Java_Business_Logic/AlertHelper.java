@@ -1,4 +1,4 @@
-package Java_FX;
+package Java_Business_Logic;
 
 import javafx.scene.control.Alert;
 

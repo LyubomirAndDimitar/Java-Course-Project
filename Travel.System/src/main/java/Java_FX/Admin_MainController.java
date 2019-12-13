@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 //import jdk.nashorn.internal.scripts.JD;
 import javafx.stage.Window;
 
-public class AdminController implements Initializable {
+public class Admin_MainController implements Initializable {
 	@FXML
 	private Button U_C_Query;
 
@@ -86,7 +86,7 @@ public class AdminController implements Initializable {
 
 				Stage stage = new Stage();
 				if (JDBC_Dao.ROLE == 1) {
-					Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Admin_Main.fxml"));
 					stage.setScene(new Scene(root));
 					// JDBC_Dao.getConnction();
 					// dminController.A_Name.setText(JDBC_Dao.NAME_USER);
@@ -94,11 +94,11 @@ public class AdminController implements Initializable {
 
 				if (JDBC_Dao.ROLE == 3) {
 
-					Parent root = FXMLLoader.load(getClass().getResource("/DispatcherFXML.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Dispatcher_Main.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				if (JDBC_Dao.ROLE == 4) {
-					Parent root = FXMLLoader.load(getClass().getResource("/Cashier.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/Cashier_Main.fxml"));
 					stage.setScene(new Scene(root));
 				}
 				stage.show();
@@ -124,7 +124,7 @@ public class AdminController implements Initializable {
 
 		try {
 			Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/CreateUser.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/Admin_AddNewUser.fxml"));
 			stage.setScene(new Scene(root));
 			stage.show();
 

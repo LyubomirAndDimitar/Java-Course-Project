@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Query_Sale_Controler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java_FX.Cashier_AddNewSaleController">
    <children>
       <TableView fx:id="Table_Travel" layoutX="22.0" layoutY="94.0" prefHeight="459.0" prefWidth="1098.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
         <columns>
           <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="Date" prefWidth="262.0" text="Date" />
-            <TableColumn fx:id="DEstination" prefWidth="130.0" text="Destination" />
+            <TableColumn fx:id="Destination" prefWidth="130.0" text="Destination" />
             <TableColumn fx:id="Price" prefWidth="95.0" text="Price" />
             <TableColumn fx:id="Pos" prefWidth="119.0" text="Departion_Pos" />
             <TableColumn fx:id="Type" prefWidth="141.0" text="Travel_Type" />

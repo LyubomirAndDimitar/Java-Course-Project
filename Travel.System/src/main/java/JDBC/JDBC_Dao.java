@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.Statement;
+//import java.sql.Statement;
 
 public class JDBC_Dao {
 
@@ -24,7 +25,9 @@ public class JDBC_Dao {
 	public static String NAME_USER;
 	public static String PASSWORD;
 	public static String USER_NAME;
-
+	private static int N_T_E;
+	private static int N_T_S;
+	private static int C_T;
 	public static Connection getConnction() throws SQLException {
 		Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
 		return connection;
@@ -103,9 +106,7 @@ public class JDBC_Dao {
 		}
 	}
 
-	private static int N_T_E;
-	private static int N_T_S;
-	private static int C_T;
+
 
 	private static boolean Trav_T(int tr) {
 		String trStr=((Integer)tr).toString();
@@ -170,7 +171,7 @@ public class JDBC_Dao {
 		}
 	}
 
-	public static void Updates(int Travel_tickets, int Customer_tickets) throws SQLException {
+	public static boolean Updates(int Travel_tickets, int Customer_tickets) throws SQLException {
 		try {
 			boolean Trav = Trav_T(Travel_tickets);
 			boolean Cus = Cus_T(Customer_tickets);
@@ -181,20 +182,22 @@ public class JDBC_Dao {
 				Update_Travel(Travel_tickets);
 				Update_Custemer(Customer_tickets);
 				System.out.println(N_T_E + "/" + N_T_S + "/" + C_T);
-				// return true;
+				 return true;
 			} else if (Trav == false) {
 				JOptionPane.showMessageDialog(null, "No travel tickets");
-				// return false;
+				 return false;
 			} else if (Cus == false) {
 				JOptionPane.showMessageDialog(null, "No customer tickets");
-				// return false;
+				 return false;
 			} else {
 				JOptionPane.showMessageDialog(null, "No travel and customer tickets");
-				// return false;
+				 return false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-		// return false;
+		
+		
 	}
 }

@@ -16,7 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Table_Query_Cashier implements Initializable {
+public class Dispatcher_ListOfCashiersController implements Initializable {
 	@FXML
 	private TableView<User> Table_Cashier;
 	@FXML
